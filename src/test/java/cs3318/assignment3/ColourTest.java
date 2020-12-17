@@ -85,23 +85,34 @@ class ColourTest {
     }
 
     @Test
-    public void acceptIfColoursCanBeAdded() {
-        Colour testColour = new Colour("rgb", 130, 130, 130);
-        Colour testColour2 = new Colour("rgb", 130, 130, 130);
-        assertTrue(Colour.addColours(testColour, testColour2));
-    }
-
-    @Test
-    public void rejectIfColoursCannotBeAdded() {
-        Colour testColour = new Colour("bgr", 130, 130, 130);
-        Colour testColour2 = new Colour("rgb", 130, 130, 130);
-        assertFalse(Colour.addColours(testColour, testColour2));
-    }
-    @Test
     public void rejectIfTheyAreNotEqual() {
         Colour testColour = new Colour("rgb", 200, 200, 200);
         Colour testColour2 = new Colour("rgb", 250, 250, 250);
         assertFalse(Colour.isEqualTo(testColour, testColour2));
+    }
+
+    @Test
+    public void acceptIfColoursCanBeAdded() throws Exception {
+        Colour testColour = new Colour("rgb", 130, 130, 130);
+        Colour testColour2 = new Colour("rgb", 130, 130, 130);
+        Colour testColour3 = new Colour("rgb", 255, 255, 255);
+        Colour resultColour = Colour.addColours(testColour, testColour2);
+        assertTrue(Colour.isEqualTo(testColour3, resultColour));
+    }
+
+    @Test
+    public void rejectIfColoursCannotBeAdded() throws Exception {
+        try {
+            Colour testColour = new Colour("bgr", 130, 130, 130);
+            Colour testColour2 = new Colour("rgb", 130, 130, 130);
+            Colour testColour3 = new Colour("rgb", 255, 255, 255);
+            Colour resultColour = Colour.addColours(testColour, testColour2);
+            assertFalse(Colour.isEqualTo(testColour3, resultColour));
+            fail();
+        } catch(Exception e) {
+            String variable = "These Colour Objects cannot be added.";
+            assertEquals(e.getMessage(), variable);
+        }
     }
 
     @Test

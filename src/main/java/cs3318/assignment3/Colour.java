@@ -47,36 +47,32 @@ public class Colour {
         return ((satisfiesMinComponent1Value(testColour)) && (satisfiesMaxComponent1Value(testColour)) && (satisfiesMinComponent2Value(testColour)) && (satisfiesMaxComponent2Value(testColour)) && (satisfiesMinComponent3Value(testColour)) && (satisfiesMaxComponent3Value(testColour)));
     }
 
-    public static boolean addColours(Colour testColour, Colour testColour2) {
-        boolean state = false;
-        try {
-            if (testColour.getName().equals(testColour2.getName())) {
+    public static Colour addColours(Colour testColour, Colour testColour2) throws Exception {
+        if (testColour.getName().equals(testColour2.getName())) {
 
-                int newComponent1;
-                int newComponent2;
-                int newComponent3;
-                if ((testColour.getComponent1() + testColour2.getComponent1()) <= MAXIMUM_VALUE) {
-                    newComponent1 = testColour.getComponent1() + testColour2.getComponent1();
-                } else {
-                    newComponent1 = 255;
-                }
-                if ((testColour.getComponent2() + testColour2.getComponent2()) <= MAXIMUM_VALUE) {
-                    newComponent2 = testColour.getComponent2() + testColour2.getComponent2();
-                } else {
-                    newComponent2 = 255;
-                }
-                if ((testColour.getComponent3() + testColour2.getComponent3()) <= MAXIMUM_VALUE) {
-                    newComponent3 = testColour.getComponent3() + testColour2.getComponent3();
-                } else {
-                    newComponent3 = 255;
-                }
-                Colour testColour3 = new Colour("rgb", newComponent1, newComponent2, newComponent3);
-                state = true;
+            int newComponent1;
+            int newComponent2;
+            int newComponent3;
+            if ((testColour.getComponent1() + testColour2.getComponent1()) <= MAXIMUM_VALUE) {
+                newComponent1 = testColour.getComponent1() + testColour2.getComponent1();
+            } else {
+                newComponent1 = 255;
             }
-        } catch (Exception e) {
-            state = false;
+            if ((testColour.getComponent2() + testColour2.getComponent2()) <= MAXIMUM_VALUE) {
+                newComponent2 = testColour.getComponent2() + testColour2.getComponent2();
+            } else {
+                newComponent2 = 255;
+            }
+            if ((testColour.getComponent3() + testColour2.getComponent3()) <= MAXIMUM_VALUE) {
+                newComponent3 = testColour.getComponent3() + testColour2.getComponent3();
+            } else {
+                newComponent3 = 255;
+            }
+            Colour testColour3 = new Colour("rgb", newComponent1, newComponent2, newComponent3);
+            return testColour3;
+        } else {
+            throw new Exception("These Colour Objects cannot be added.");
         }
-        return state;
     }
 
     public int getComponent1() {
