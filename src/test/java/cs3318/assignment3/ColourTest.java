@@ -30,49 +30,49 @@ class ColourTest {
     }
 
     @Test
-    public void acceptIfSatisfiesTheMinYValue() {
+    public void acceptIfSatisfiesTheMinComponent2Value() {
         Colour testColour = new Colour("rgb" ,20, 20, 20);
         assertTrue(Colour.satisfiesMinComponent2Value(testColour));
     }
 
     @Test
-    public void rejectIfDoesNotSatisfyTheMinYValue() {
+    public void rejectIfDoesNotSatisfyTheMinComponent2Value() {
         Colour testColour = new Colour("rgb" ,-1, -1, -1);
         assertFalse(Colour.satisfiesMinComponent2Value(testColour));
     }
 
     @Test
-    public void acceptIfSatisfiesTheMaxYValue() {
+    public void acceptIfSatisfiesTheMaxComponent2Value() {
         Colour testColour = new Colour("rgb" ,255, 255, 255);
         assertTrue(Colour.satisfiesMaxComponent2Value(testColour));
     }
 
     @Test
-    public void rejectIfDoesNotSatisfyTheMaxYValue() {
+    public void rejectIfDoesNotSatisfyTheMaxComponent2Value() {
         Colour testColour = new Colour("rgb" ,300, 300, 300);
         assertFalse(Colour.satisfiesMaxComponent2Value(testColour));
     }
 
     @Test
-    public void acceptIfSatisfiesTheMinZValue() {
+    public void acceptIfSatisfiesTheMinComponent3Value() {
         Colour testColour = new Colour("rgb" ,20, 20, 20);
         assertTrue(Colour.satisfiesMinComponent3Value(testColour));
     }
 
     @Test
-    public void rejectIfDoesNotSatisfyTheMinZValue() {
+    public void rejectIfDoesNotSatisfyTheMinComponent3Value() {
         Colour testColour = new Colour("rgb" ,-1, -1, -1);
         assertFalse(Colour.satisfiesMinComponent3Value(testColour));
     }
 
     @Test
-    public void acceptIfSatisfiesTheMaxZValue() {
+    public void acceptIfSatisfiesTheMaxComponent3Value() {
         Colour testColour = new Colour("rgb" ,255, 255, 255);
         assertTrue(Colour.satisfiesMaxComponent3Value(testColour));
     }
 
     @Test
-    public void rejectIfDoesNotSatisfyTheMaxZValue() {
+    public void rejectIfDoesNotSatisfyTheMaxComponent3Value() {
         Colour testColour = new Colour("rgb" ,300, 300, 300);
         assertFalse(Colour.satisfiesMaxComponent3Value(testColour));
     }
